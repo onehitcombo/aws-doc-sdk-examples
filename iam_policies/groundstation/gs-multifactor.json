@@ -13,8 +13,7 @@
 */
 
 // snippet-comment:[These are tags for the AWS doc team's sample catalog. Do not remove.]
-// snippet-sourcedescription:[gs-genaccess demonstrates how to grant Console
-// General Access.]
+// snippet-sourcedescription:[gs-multifactor demonstrates how to create additional security through multifactor authentication.]
 // snippet-service:[groundstation]
 // snippet-keyword:[JSON]
 // snippet-keyword:[AWS Ground Station]
@@ -22,22 +21,24 @@
 // snippet-keyword:[<<API OPERATION>>]
 // snippet-sourcetype:[snippet] or snippet-sourcetype:[full-example]
 // snippet-sourcedate:[2019-05-23]
-// snippet-sourceauthor:[chekevin@]
-// snippet-start:[groundstation.json.genaccess.section_c]
+// snippet-sourceauthor:[@chekevin]
+// snippet-start:[groundstation.json.multifactor.section_e]
 
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "groundstation:*"
-      ],
-      "Resource": [
-        "*"
-      ]
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "groundstation:*",
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": true
+                }
+            }
+        }
+    ]
 }
 
-// snippet-end:[groundstation.jason.genaccess.section_c]
+
+// snippet-end:[groundstation.json.multifactor.section_e]

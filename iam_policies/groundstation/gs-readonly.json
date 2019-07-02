@@ -13,8 +13,7 @@
 */
 
 // snippet-comment:[These are tags for the AWS doc team's sample catalog. Do not remove.]
-// snippet-sourcedescription:[gs-genaccess demonstrates how to grant Console
-// General Access.]
+// snippet-sourcedescription:[gs-readonly demonstrates how to grant read-only access.]
 // snippet-service:[groundstation]
 // snippet-keyword:[JSON]
 // snippet-keyword:[AWS Ground Station]
@@ -23,7 +22,7 @@
 // snippet-sourcetype:[snippet] or snippet-sourcetype:[full-example]
 // snippet-sourcedate:[2019-05-23]
 // snippet-sourceauthor:[chekevin@]
-// snippet-start:[groundstation.json.genaccess.section_c]
+// snippet-start:[groundstation.json.readonly.section_d]
 
 {
   "Version": "2012-10-17",
@@ -31,7 +30,9 @@
     {
       "Effect": "Allow",
       "Action": [
-        "groundstation:*"
+        "groundstation:Get*",
+        "groundstation:List*",
+        "groundstation:Describe*"
       ],
       "Resource": [
         "*"
@@ -40,4 +41,4 @@
   ]
 }
 
-// snippet-end:[groundstation.jason.genaccess.section_c]
+// snippet-end:[groundstation.json.readonly.section_d]

@@ -13,8 +13,7 @@
 */
 
 // snippet-comment:[These are tags for the AWS doc team's sample catalog. Do not remove.]
-// snippet-sourcedescription:[gs-genaccess demonstrates how to grant Console
-// General Access.]
+// snippet-sourcedescription:[gs-tags demonstrates how to create a policy, based on tags, that allows viewing a Config.]
 // snippet-service:[groundstation]
 // snippet-keyword:[JSON]
 // snippet-keyword:[AWS Ground Station]
@@ -22,22 +21,23 @@
 // snippet-keyword:[<<API OPERATION>>]
 // snippet-sourcetype:[snippet] or snippet-sourcetype:[full-example]
 // snippet-sourcedate:[2019-05-23]
-// snippet-sourceauthor:[chekevin@]
-// snippet-start:[groundstation.json.genaccess.section_c]
+// snippet-sourceauthor:[dobbsmic@]
+// snippet-start:[groundstation.json.gstags.section_f]
+
 
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "groundstation:*"
-      ],
-      "Resource": [
-        "*"
-      ]
+    "Sid": "VisualEditor1",
+    "Effect": "Allow",
+    "Action": [
+        "groundstation:GetConfig"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "groundstation:ResourceTag/Owner": "${aws:username}"
+
+        }
     }
-  ]
 }
 
-// snippet-end:[groundstation.jason.genaccess.section_c]
+// snippet-end:[groundstation.json.gstags.;section_f]
